@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 public class Node
 {
     private int number;
+    public Person personaNodo;
 
     private List<Node> children = new List<Node>();
 
@@ -15,7 +16,7 @@ public class Node
             return this.number;
         }
     }
-
+    
     public ReadOnlyCollection<Node> Children {
         get
         {
@@ -23,11 +24,16 @@ public class Node
         }
     }
 
-    public Node(int number)
+    public Node(int number, Person persona = null)
     {
         this.number = number;
+        this.personaNodo = persona;
     }
 
+    public string nombrePersonaNodo()
+    {
+        return personaNodo.Name;
+    }
     public void AddChildren(Node n)
     {
         this.children.Add(n);
